@@ -1,0 +1,121 @@
+<svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" width="1200" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e1a"/>
+      <stop offset="50%" style="stop-color:#0d1b3e"/>
+      <stop offset="100%" style="stop-color:#0a0e1a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00c6ff"/>
+      <stop offset="100%" style="stop-color:#0072ff"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f7971e"/>
+      <stop offset="100%" style="stop-color:#ffd200"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff08" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow-center" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#0072ff22"/>
+      <stop offset="100%" style="stop-color:#0a0e1a00"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="url(#bg)"/>
+  <rect width="1200" height="400" fill="url(#grid)"/>
+  <rect width="1200" height="400" fill="url(#glow-center)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="950" cy="200" r="180" fill="none" stroke="#0072ff15" stroke-width="1"/>
+  <circle cx="950" cy="200" r="140" fill="none" stroke="#0072ff20" stroke-width="1"/>
+  <circle cx="950" cy="200" r="100" fill="none" stroke="#0072ff30" stroke-width="1"/>
+  <circle cx="950" cy="200" r="60" fill="none" stroke="#0072ff40" stroke-width="1"/>
+
+  <!-- Shield icon (security) -->
+  <g transform="translate(870, 120)" filter="url(#glow)">
+    <path d="M80,10 L140,35 L140,95 C140,140 80,165 80,165 C80,165 20,140 20,95 L20,35 Z" fill="none" stroke="url(#accent)" stroke-width="2.5" opacity="0.8"/>
+    <path d="M80,40 L115,57 L115,95 C115,122 80,137 80,137 C80,137 45,122 45,95 L45,57 Z" fill="#0072ff15" stroke="url(#accent)" stroke-width="1.5" opacity="0.6"/>
+    <!-- Lock symbol inside shield -->
+    <rect x="68" y="88" width="24" height="18" rx="3" fill="url(#accent)" opacity="0.9"/>
+    <path d="M72,88 L72,82 C72,73 88,73 88,82 L88,88" fill="none" stroke="url(#accent)" stroke-width="2.5"/>
+    <circle cx="80" cy="97" r="3" fill="#fff" opacity="0.9"/>
+  </g>
+
+  <!-- Connecting lines / flow diagram -->
+  <g opacity="0.4">
+    <!-- User box -->
+    <rect x="60" y="170" width="110" height="50" rx="8" fill="#0072ff20" stroke="#0072ff" stroke-width="1.5"/>
+    <text x="115" y="191" text-anchor="middle" fill="#60a5fa" font-family="monospace" font-size="11">👤 User</text>
+    <text x="115" y="208" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">Browser</text>
+
+    <!-- Arrow -->
+    <line x1="170" y1="195" x2="225" y2="195" stroke="url(#accent)" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <polygon points="225,190 235,195 225,200" fill="#00c6ff"/>
+
+    <!-- SP box -->
+    <rect x="235" y="170" width="110" height="50" rx="8" fill="#0072ff20" stroke="#0072ff" stroke-width="1.5"/>
+    <text x="290" y="191" text-anchor="middle" fill="#60a5fa" font-family="monospace" font-size="11">🖥 Service</text>
+    <text x="290" y="208" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">Provider (SP)</text>
+
+    <!-- Arrow -->
+    <line x1="345" y1="195" x2="400" y2="195" stroke="url(#accent)" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <polygon points="400,190 410,195 400,200" fill="#00c6ff"/>
+
+    <!-- Okta / IdP box -->
+    <rect x="410" y="170" width="120" height="50" rx="8" fill="#f7971e25" stroke="url(#accent2)" stroke-width="1.5"/>
+    <text x="470" y="191" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="11">🔐 Okta IdP</text>
+    <text x="470" y="208" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">SAML Response</text>
+
+    <!-- Arrow back -->
+    <path d="M 410,220 Q 290,265 170,220" fill="none" stroke="url(#accent)" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <polygon points="170,215 160,220 170,225" fill="#00c6ff"/>
+    <text x="290" y="258" text-anchor="middle" fill="#60a5fa" font-family="monospace" font-size="10">✅ Authenticated</text>
+  </g>
+
+  <!-- Main title -->
+  <text x="100" y="90" font-family="'Georgia', serif" font-size="48" font-weight="700" fill="#ffffff" letter-spacing="-1" filter="url(#glow2)">Okta SAML SSO</text>
+  <text x="100" y="130" font-family="'Georgia', serif" font-size="48" font-weight="700" fill="url(#accent)" letter-spacing="-1" filter="url(#glow2)">Integration Lab</text>
+
+  <!-- Subtitle -->
+  <text x="100" y="158" font-family="monospace" font-size="15" fill="#94a3b8" letter-spacing="2">SINGLE SIGN-ON • IDENTITY FEDERATION • ZERO TRUST</text>
+
+  <!-- Tags -->
+  <g transform="translate(100, 300)">
+    <rect x="0" y="0" width="80" height="26" rx="13" fill="#0072ff25" stroke="#0072ff60" stroke-width="1"/>
+    <text x="40" y="17" text-anchor="middle" fill="#60a5fa" font-family="monospace" font-size="11">SAML 2.0</text>
+
+    <rect x="90" y="0" width="60" height="26" rx="13" fill="#f7971e20" stroke="#f7971e60" stroke-width="1"/>
+    <text x="120" y="17" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="11">Okta</text>
+
+    <rect x="160" y="0" width="80" height="26" rx="13" fill="#10b98120" stroke="#10b98160" stroke-width="1"/>
+    <text x="200" y="17" text-anchor="middle" fill="#34d399" font-family="monospace" font-size="11">SSO</text>
+
+    <rect x="250" y="0" width="90" height="26" rx="13" fill="#8b5cf620" stroke="#8b5cf660" stroke-width="1"/>
+    <text x="295" y="17" text-anchor="middle" fill="#a78bfa" font-family="monospace" font-size="11">X.509 Cert</text>
+
+    <rect x="350" y="0" width="110" height="26" rx="13" fill="#ef444420" stroke="#ef444460" stroke-width="1"/>
+    <text x="405" y="17" text-anchor="middle" fill="#f87171" font-family="monospace" font-size="11">Identity Mgmt</text>
+  </g>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="380" width="1200" height="3" fill="url(#accent)" opacity="0.6"/>
+
+  <!-- Author tag -->
+  <text x="1140" y="370" text-anchor="end" fill="#475569" font-family="monospace" font-size="11">by Sarmad Farooq</text>
+</svg>
