@@ -1,21 +1,15 @@
-<div align="center">
-  <img src="banner.svg" alt="Okta SAML SSO Integration Lab Banner" width="100%"/>
-</div>
+[![Okta SAML SSO Integration Lab Banner](https://github.com/ahmxdniazi/okta-saml-sso-integration/raw/main/banner.svg)](https://github.com/ahmxdniazi/okta-saml-sso-integration)
 
-<br/>
+&nbsp;
 
-<div align="center">
-
-![Okta](https://img.shields.io/badge/Okta-007DC1?style=for-the-badge&logo=okta&logoColor=white)
-![SAML](https://img.shields.io/badge/SAML_2.0-FF6600?style=for-the-badge&logo=xml&logoColor=white)
-![Security](https://img.shields.io/badge/IAM-Zero_Trust-0A84FF?style=for-the-badge&logo=shield&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Completed-22c55e?style=for-the-badge)
+[![Okta](https://img.shields.io/badge/Okta-007DC1?style=for-the-badge&logo=okta&logoColor=white)](https://okta.com)
+[![SAML](https://img.shields.io/badge/SAML_2.0-FF6600?style=for-the-badge&logo=xml&logoColor=white)](https://en.wikipedia.org/wiki/SAML_2.0)
+[![Security](https://img.shields.io/badge/IAM-Zero_Trust-0A84FF?style=for-the-badge&logo=shield&logoColor=white)](https://en.wikipedia.org/wiki/Zero_trust_security_model)
+[![Status](https://img.shields.io/badge/Status-Completed-22c55e?style=for-the-badge)](https://github.com/ahmxdniazi/okta-saml-sso-integration)
 
 **A hands-on implementation of enterprise-grade Single Sign-On using Okta as Identity Provider with SAML 2.0**
 
 [Overview](#-overview) · [Architecture](#-architecture) · [Implementation](#-implementation-steps) · [Screenshots](#-screenshots) · [Key Concepts](#-key-concepts)
-
-</div>
 
 ---
 
@@ -44,6 +38,7 @@ This is a real-world enterprise IAM (Identity and Access Management) scenario, t
 ```
 
 **Components:**
+
 - **Identity Provider (IdP):** Okta (integrator-7188680 org)
 - **Service Provider (SP):** Custom SAML Test App
 - **Protocol:** SAML 2.0
@@ -55,7 +50,7 @@ This is a real-world enterprise IAM (Identity and Access Management) scenario, t
 ## 🛠 Tech Stack & Tools
 
 | Tool | Purpose |
-|------|---------|
+|---|---|
 | **Okta Developer Org** | Identity Provider (IdP) |
 | **SAML 2.0 Protocol** | Federation Standard |
 | **X.509 Certificate** | Assertion Signing & Encryption |
@@ -70,10 +65,11 @@ This is a real-world enterprise IAM (Identity and Access Management) scenario, t
 ### Step 1 — Create SAML App Integration in Okta
 
 Navigated to **Applications → Create App Integration** in the Okta Admin Console and selected **SAML 2.0** as the sign-on method. Configured the application with:
+
 - App Name: `SAML Test App`
 - Sign-on method: `SAML 2.0`
 
-📸 *Screenshot: [01-saml-app-created.png](screenshots/01-saml-app-created.png)*
+![SAML Test App created in Applications list](https://github.com/ahmxdniazi/okta-saml-sso-integration/raw/main/screenshots/01-saml-app-created.png)
 
 ---
 
@@ -82,13 +78,13 @@ Navigated to **Applications → Create App Integration** in the Okta Admin Conso
 Under the **Sign On** tab of the SAML Test App, retrieved critical IdP metadata required to link the SP:
 
 | Field | Value |
-|-------|-------|
+|---|---|
 | **Metadata URL** | `https://integrator-7188680.okta.com/app/exk12c2xst6TMHjEi698/sso/saml/metadata` |
 | **SSO URL** | `https://integrator-7188680.okta.com/app/integrator-7188680_samltestapp_1/exk12c2xst6TMHjEi698/sso/saml` |
 | **IdP Issuer** | `http://www.okta.com/exk12c2xst6TMHjEi698` |
 | **Sign-on Method** | SAML 2.0 |
 
-📸 *Screenshot: [03-saml-app-sign-on-settings.png](screenshots/03-saml-app-sign-on-settings.png)*
+![Sign On tab showing Metadata URL and SAML 2.0 settings](https://github.com/ahmxdniazi/okta-saml-sso-integration/raw/main/screenshots/03-saml-app-sign-on-settings.png)
 
 ---
 
@@ -103,7 +99,7 @@ MIIDtDCCApygAwIBAgIGAZ3Jw4AGMA0GCSqGSIb3DQEBCwUAMIGa...
 -----END CERTIFICATE-----
 ```
 
-📸 *Screenshot: [08-xml-certificate.png](screenshots/08-xml-certificate.png)*
+![X.509 certificate for SAML assertion signing](https://github.com/ahmxdniazi/okta-saml-sso-integration/raw/main/screenshots/08-xml-certificate.png)
 
 ---
 
@@ -111,7 +107,7 @@ MIIDtDCCApygAwIBAgIGAZ3Jw4AGMA0GCSqGSIb3DQEBCwUAMIGa...
 
 Confirmed the app is **Active** and inspected the **Assignments** tab to manage user/group access to the SAML application.
 
-📸 *Screenshot: [04-saml-app-assignments.png](screenshots/04-saml-app-assignments.png)*
+![Assignments tab — managing user access](https://github.com/ahmxdniazi/okta-saml-sso-integration/raw/main/screenshots/04-saml-app-assignments.png)
 
 ---
 
@@ -119,7 +115,7 @@ Confirmed the app is **Active** and inspected the **Assignments** tab to manage 
 
 Created a test user **Sarmad Farooq** (`sarmadfarooq@cyber.com`) in the Okta Universal Directory. Initial state: **Pending user action — password selection required.**
 
-📸 *Screenshot: [05-user-pending-activation.png](screenshots/05-user-pending-activation.png)*
+![Test user created, pending activation](https://github.com/ahmxdniazi/okta-saml-sso-integration/raw/main/screenshots/05-user-pending-activation.png)
 
 ---
 
@@ -127,46 +123,45 @@ Created a test user **Sarmad Farooq** (`sarmadfarooq@cyber.com`) in the Okta Uni
 
 Assigned **Sarmad Farooq** to the **SAML Test App** as an individual user. Assignment type: `Individual`, App username: `sarmadfarooq@cyber.com`.
 
-📸 *Screenshots: [06-user-app-assigned.png](screenshots/06-user-app-assigned.png)*
+![User assigned to SAML Test App](https://github.com/ahmxdniazi/okta-saml-sso-integration/raw/main/screenshots/06-user-app-assigned.png)
 
 ---
 
 ### Step 7 — Verify SSO via Okta End-User Dashboard
 
 Logged into the Okta End-User Dashboard as `sarmadfarooq@cyber.com`. The dashboard confirmed:
+
 - Notification: **"You were assigned new apps"**
 - App listed: **SAML Test App** ✅
 
 This confirms the full SSO provisioning flow is working correctly.
 
-📸 *Screenshot: [07-test-user-okta-dashboard.png](screenshots/07-test-user-okta-dashboard.png)*
+![User dashboard showing SAML app notification](https://github.com/ahmxdniazi/okta-saml-sso-integration/raw/main/screenshots/07-test-user-okta-dashboard.png)
 
 ---
 
 ## 📸 Screenshots
 
-<div align="center">
-
 | Step | Screenshot | Description |
-|------|-----------|-------------|
-| 1 | [01-saml-app-created.png](screenshots/01-saml-app-created.png) | SAML Test App visible in Applications list |
-| 2 | [03-saml-app-sign-on-settings.png](screenshots/03-saml-app-sign-on-settings.png) | Sign On tab — Metadata URL & SAML 2.0 settings |
-| 3 | [04-saml-app-assignments.png](screenshots/04-saml-app-assignments.png) | Assignments tab — managing user access |
-| 4 | [05-user-pending-activation.png](screenshots/05-user-pending-activation.png) | Test user created, pending activation |
-| 5 | [06-user-app-assigned.png](screenshots/06-user-app-assigned.png) | User assigned to SAML Test App |
-| 6 | [07-test-user-okta-dashboard.png](screenshots/07-test-user-okta-dashboard.png) | User dashboard showing SAML app notification |
-| 7 | [08-xml-certificate.png](screenshots/08-xml-certificate.png) | X.509 certificate for SAML assertion signing |
-
-</div>
+|---|---|---|
+| 1 | ![](https://github.com/ahmxdniazi/okta-saml-sso-integration/raw/main/screenshots/01-saml-app-created.png) | SAML Test App visible in Applications list |
+| 2 | ![](https://github.com/ahmxdniazi/okta-saml-sso-integration/raw/main/screenshots/03-saml-app-sign-on-settings.png) | Sign On tab — Metadata URL & SAML 2.0 settings |
+| 3 | ![](https://github.com/ahmxdniazi/okta-saml-sso-integration/raw/main/screenshots/04-saml-app-assignments.png) | Assignments tab — managing user access |
+| 4 | ![](https://github.com/ahmxdniazi/okta-saml-sso-integration/raw/main/screenshots/05-user-pending-activation.png) | Test user created, pending activation |
+| 5 | ![](https://github.com/ahmxdniazi/okta-saml-sso-integration/raw/main/screenshots/06-user-app-assigned.png) | User assigned to SAML Test App |
+| 6 | ![](https://github.com/ahmxdniazi/okta-saml-sso-integration/raw/main/screenshots/07-test-user-okta-dashboard.png) | User dashboard showing SAML app notification |
+| 7 | ![](https://github.com/ahmxdniazi/okta-saml-sso-integration/raw/main/screenshots/08-xml-certificate.png) | X.509 certificate for SAML assertion signing |
 
 ---
 
 ## 🔑 Key Concepts
 
 ### What is SAML 2.0?
+
 **Security Assertion Markup Language (SAML) 2.0** is an XML-based open standard for exchanging authentication and authorization data between parties — specifically, between an Identity Provider (IdP) and a Service Provider (SP). It enables **Single Sign-On (SSO)**, allowing users to authenticate once and gain access to multiple systems.
 
 ### SAML Flow (SP-Initiated)
+
 1. User tries to access the Service Provider (SP)
 2. SP redirects the user to the IdP (Okta) with a SAML AuthnRequest
 3. Okta authenticates the user
@@ -175,8 +170,9 @@ This confirms the full SSO provisioning flow is working correctly.
 6. User is granted access ✅
 
 ### Key SAML Metadata Fields
+
 | Field | Purpose |
-|-------|---------|
+|---|---|
 | **SSO URL** | Endpoint where the SP sends the AuthnRequest |
 | **IdP Issuer** | Unique identifier for the IdP |
 | **X.509 Certificate** | Used to verify the IdP's digital signature on assertions |
@@ -210,18 +206,18 @@ This confirms the full SSO provisioning flow is working correctly.
 ```
 okta-saml-sso-project/
 │
-├── README.md                        # This file
-├── banner.svg                       # Project banner
-├── saml-flow-diagram.svg            # SAML flow architecture diagram
+├── README.md                              # This file
+├── banner.svg                             # Project banner
+├── saml-flow-diagram.svg                  # SAML flow architecture diagram
 │
 └── screenshots/
-    ├── 01-saml-app-created.png      # App list showing SAML Test App
-    ├── 03-saml-app-sign-on-settings.png  # Sign On configuration
-    ├── 04-saml-app-assignments.png  # Assignments tab
-    ├── 05-user-pending-activation.png    # New user state
-    ├── 06-user-app-assigned.png     # User-to-app assignment
-    ├── 07-test-user-okta-dashboard.png   # End-user SSO dashboard
-    └── 08-xml-certificate.png       # X.509 certificate
+    ├── 01-saml-app-created.png            # App list showing SAML Test App
+    ├── 03-saml-app-sign-on-settings.png   # Sign On configuration
+    ├── 04-saml-app-assignments.png        # Assignments tab
+    ├── 05-user-pending-activation.png     # New user state
+    ├── 06-user-app-assigned.png           # User-to-app assignment
+    ├── 07-test-user-okta-dashboard.png    # End-user SSO dashboard
+    └── 08-xml-certificate.png             # X.509 certificate
 ```
 
 ---
@@ -229,15 +225,12 @@ okta-saml-sso-project/
 ## 👤 Author
 
 **Muhammad Ahmad**
-- Email: m.ahmad.cybersec@gmail.com
+
+- Email: [m.ahmad.cybersec@gmail.com](mailto:m.ahmad.cybersec@gmail.com)
 - Domain: Cybersecurity | IAM | Identity Federation
 
 ---
 
-<div align="center">
-
 *Built as part of a hands-on Identity & Access Management (IAM) lab.*
 
 ⭐ If you found this useful, consider starring the repo!
-
-</div>
