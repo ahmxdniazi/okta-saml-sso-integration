@@ -228,8 +228,8 @@ okta-saml-sso-project/
 
 ## 👤 Author
 
-**Sarmad Farooq**
-- Email: sarmadfarooq@cyber.com
+**Muhammad Ahmad**
+- Email: m.ahmad.cybersec@gmail.com
 - Domain: Cybersecurity | IAM | Identity Federation
 
 ---
